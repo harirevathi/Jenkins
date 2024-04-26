@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('terrafrom') {
+            steps {
+                sh 'terraform init'
+            }
+            
+        }
+        stage('terrafrom1') {
+            steps {
+                sh 'terraform validate'
+            }
+            
+        }
+        stage('terrafrom2') {
+            steps {
+                sh 'terraform plan'
+            }
+            
+        }
+        stage('terrafrom3') {
+            steps {
+                sh 'terraform apply -auto-approve'
+            }
+            
+        }
+        
+    }
+    
+}
